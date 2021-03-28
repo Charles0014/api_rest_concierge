@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.mr.jack.concierge.repository.RetiradaRepository;
 import br.com.mr.jack.concierge.models.Retirada;
-import br.com.mr.jack.concierge.models.Status;
+import br.com.mr.jack.concierge.models.StatusRetirada;
 
 @RestController
 @RequestMapping(value = "/mrjack/api")
@@ -36,7 +36,7 @@ public class RetiradaResources {
 	
 	@PostMapping("/retirada")
 	public Retirada salvarRetirada(@RequestBody Retirada Retirada) {
-		Retirada.setStatus(Status.AGUARDANDO);
+		Retirada.setStatus(StatusRetirada.AGUARDANDO);
 		Retirada.setRecebidoPor("Func 1");
 		Retirada.setEnvioMensagem(false);
 		Retirada.setDataCriacao(LocalDateTime.now());
@@ -51,7 +51,7 @@ public class RetiradaResources {
 	
 	@PutMapping("/retirada")
 	public Retirada editarRetirada(@RequestBody Retirada Retirada) {
-		if(Retirada.getStatus() == Status.ENTREGUE) {
+		if(Retirada.getStatus() == StatusRetirada.ENTREGUE) {
 			Retirada.setDataRetirada(LocalDateTime.now());
 			Retirada.setRetiraPor("Morador");
 			return retiradaRepository.save(Retirada);

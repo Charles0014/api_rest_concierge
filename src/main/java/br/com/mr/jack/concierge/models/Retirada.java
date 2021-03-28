@@ -1,20 +1,14 @@
 package br.com.mr.jack.concierge.models;
 
 import java.time.LocalDateTime;
-import java.util.Random;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="TB_RETIRADA")
@@ -33,7 +27,7 @@ public class Retirada {
     @JoinColumn(name = "morado_id",nullable = false)
 	private Morador morador;
 	
-	private Status status;
+	private StatusRetirada status;
 	private Boolean envioMensagem;
 	private LocalDateTime dataCriacao ;
 	private String recebidoPor;
@@ -44,7 +38,7 @@ public class Retirada {
 	public Retirada() {
 	}
 	
-	public Retirada(TipoRetira tipoRetirada, String descricao, Morador morador, Status status, Boolean envioMensagem,
+	public Retirada(TipoRetira tipoRetirada, String descricao, Morador morador, StatusRetirada status, Boolean envioMensagem,
 			LocalDateTime dataCriacao, String recebidoPor, LocalDateTime dataRetirada, String retiraPor,
 			String codigoRetirada) {
 		super();
@@ -94,11 +88,11 @@ public class Retirada {
 		this.morador = morador;
 	}
 
-	public Status getStatus() {
+	public StatusRetirada getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(StatusRetirada status) {
 		this.status = status;
 	}
 
