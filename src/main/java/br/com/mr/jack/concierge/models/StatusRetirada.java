@@ -1,5 +1,5 @@
 package br.com.mr.jack.concierge.models;
 
-public enum Status {
+public enum StatusRetirada {
 	AGUARDANDO, ENTREGUE,ATRASADO,CANCELADO,OUTROS
 }
