@@ -24,7 +24,8 @@ public class Morador implements Serializable{
 	private String telefone;
 	private String celular;
 	private TipoMorador tipoMorador;
-	private LocalDateTime dataCriacao = LocalDateTime.now();
+	private LocalDateTime dataCriacao;
+	private LocalDateTime dataAtualizacao;
 	
 	public Morador() {
 		
@@ -38,7 +39,6 @@ public class Morador implements Serializable{
 		this.telefone = telefone;
 		this.celular = celular;
 		this.tipoMorador = tipoMorador;
-		this.dataCriacao = dataCriacao;
 	}
 
 	public long getId() {
@@ -105,4 +105,11 @@ public class Morador implements Serializable{
 		this.dataCriacao = dataCriacao;
 	}
 	
+	public LocalDateTime getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
+	}
 }
